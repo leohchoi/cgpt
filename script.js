@@ -1,4 +1,4 @@
-import bot from './assets/bot.svg'
+import bot from './assets/bot.png'
 import user from './assets/user.svg'
 
 const form = document.querySelector('form');
@@ -68,3 +68,17 @@ const handleSubmit = async(eve) => {
 
   loader(messageDiv);
 }
+
+// so far we have created:
+// 1) the loader function which shows the loading phase of the AI
+// 2) the typetext function which types each letter at a time
+// 3) the unique ID generator
+// 4) the chatStripe function which is the html portion that will add the texts from both user and AI to the screen
+// 5) the handleSubmit function which will add chatStripe to the actual html file after user presses submit
+
+form.addEventListener('submit', handleSubmit);
+form.addEventListener('keyup', (e) => {
+    if (e.code === 'Enter') {
+        handleSubmit(e);
+    }
+})
